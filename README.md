@@ -3,7 +3,7 @@
 ## Welcome! 👋
 
 Thanks for checking out this front-end coding challenge I decided to tackle.  The goal?  Sharpen my front end layout & website design skills by completing 30 days (_although maybe not 30 days straight_) 
-worth of building as close to pixel perfect as possbile designs as I can using Tailwind CSS.
+worth of building as close to pixel perfect designs as I can using Tailwind CSS.
 
 ## Project Breakdown
 
