@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --text-gray: hsla(0, 0%, 100%, 0.75);
+  --orange: hsl(31, 77%, 52%);
+  --dark-cyan: hsl(184, 100%, 22%);
+  --light-gray: hsl(0, 0%, 95%);
+}
+
+.bg-card-orange {
+  background-color: var(--orange)
+}
+
+.btn-text-orange {
+  color: var(--orange);
+}
+
+.bg-card-dark-cyan {
+  background-color: var(--dark-cyan)
+}
+
+.btn-text-dark-cyan {
+  color: var(--dark-cyan);
+}
+
+.bg-card-very-dark-cyan {
+ background-color: hsl(179, 100%, 13%);
+}
+
+.bg-very-light-gray {
+  background-color: var(--light-gray);
+}
+
+.btn-text-very-dark-cyan {
+  color: hsl(179, 100%, 13%);
+}
+
+.btn-hover:hover {
+  background-color: transparent;
+  color: var(--text-gray);
+}
+
+.font-p-body {
+  font-family: "Lexend Deca", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-display-h1 {
+  font-family: "Big Shoulders Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.p-text-transparent {
+  color: var(--text-gray)
+}
+
+.p-15 {
+  font-size: 15px;
+}
+
+.text-very-light-gray {
+  color: var(--text-gray);
+}
