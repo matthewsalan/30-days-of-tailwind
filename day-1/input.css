@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-dark-blue {
+  background-color: hsl(217, 54%, 11%);
+}
+
+.card-dark-blue {
+  background-color: hsl(216, 50%, 16%);
+}
+
+.text-blue {
+  color: hsl(215, 51%, 70%);
+}
+
+.border-blue {
+  border-color: hsl(215, 32%, 27%);
+}
+
+.avatar-ring-white {
+  border-color: hsl(0, 0%, 100%);
+}
+
+.outfit-p {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.outfit-text-bold {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.outfit-text-normal {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* .outfit-h1:hover {
+  color: hsl(178, 100%, 50%);
+} */
+
+.txt-cyan {
+  color: hsl(178, 100%, 50%);
+}
+
+.hover-cyan:hover {
+  color: hsl(178, 100%, 50%);
+}
+
+.content {
+  overflow: hidden;
+}
+
+.content .content-overlay {
+  background: hsl(178, 100%, 50%);;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+
+.content:hover .content-overlay{
+  opacity: 0.45;
+}
+
+.hide-svg svg {
+  visibility: hidden;
+}
+
+.hide-svg:hover svg {
+  visibility: visible;
+}
