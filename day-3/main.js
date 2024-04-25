@@ -8,45 +8,53 @@ const notice = document.querySelector(".notice");
 
 btnNotify.addEventListener("click", function (e) {
   e.preventDefault();
-  if (!emailRegex.test(emailInput.value)) return;
-  _toggleSuccessFormState();
-});
-
-btnNotify.addEventListener("mouseenter", function () {
-  if (!emailRegex.test(emailInput.value)) {
-    _toggleErrorFormState();
-    btnNotify.addEventListener("mouseleave", _resetFormState);
-  }
+  _handleFormSubmission();
 });
 
 function _toggleErrorFormState() {
-  if (notice.classList.contains("text-green-600")) {
-    notice.classList.toggle("text-green-600");
-    notice.textContent = null;
-    notice.classList.toggle("invisible");
-  }
-
   emailInput.classList.toggle("border-[--pale-blue]");
   emailInput.classList.toggle("border-[--light-red]");
   notice.classList.toggle("text-[--light-red]");
-  notice.classList.toggle("invisible");
-  notice.textContent = "Please provide a valid email address";
+}
+
+function _resetSuccessFormState() {
+  notice.classList.toggle("text-green-600");
+}
+
+function _resetFormState() {
+  if (notice.classList.contains("text-green-600")) {
+    notice.classList.toggle("text-green-600");
+  } else {
+    emailInput.classList.toggle("border-[--pale-blue]");
+    emailInput.classList.toggle("border-[--light-red]");
+    notice.classList.toggle("text-[--light-red]");
+  }
 }
 
 function _toggleSuccessFormState() {
   notice.classList.toggle("text-green-600");
-  notice.classList.toggle("invisible");
-  notice.textContent = "Thank you!  We'll let you know when we launch.";
   form.reset();
-  btnNotify.removeEventListener("mouseleave", _resetFormState);
 }
 
-function _resetFormState() {
-  if (emailInput.classList.contains("border-[--light-red]")) {
-    emailInput.classList.toggle("border-[--light-red]");
-    emailInput.classList.toggle("border-[--pale-blue]");
-    notice.classList.toggle("text-[--light-red]");
+function _handleFormSubmission() {
+  let entries = Object.fromEntries(new FormData(form));
+  if (_dirtyForm()) _resetFormState();
+
+  if (entries.email === "") {
+    _toggleErrorFormState();
+    notice.textContent = "Whoops! It looks like you forgot to add your email";
+  } else if (!emailRegex.test(emailInput.value)) {
+    _toggleErrorFormState();
+    notice.textContent = "Please provide a valid email address";
+  } else {
+    _toggleSuccessFormState();
+    notice.textContent = "Thank you!  We'll let you know when we launch.";
   }
-  notice.classList.toggle("invisible");
-  notice.textContent = null;
+}
+
+function _dirtyForm() {
+  return (
+    emailInput.classList.contains("border-[--light-red]") ||
+    notice.classList.contains("text-green-600")
+  );
 }
