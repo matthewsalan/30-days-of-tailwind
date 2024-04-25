@@ -9,17 +9,17 @@ const notice = document.querySelector(".notice");
 btnNotify.addEventListener("click", function (e) {
   e.preventDefault();
   if (!emailRegex.test(emailInput.value)) return;
-  toggleSuccessFormState();
+  _toggleSuccessFormState();
 });
 
 btnNotify.addEventListener("mouseenter", function () {
   if (!emailRegex.test(emailInput.value)) {
-    toggleErrorFormState();
-    btnNotify.addEventListener("mouseleave", resetFormState);
+    _toggleErrorFormState();
+    btnNotify.addEventListener("mouseleave", _resetFormState);
   }
 });
 
-function toggleErrorFormState() {
+function _toggleErrorFormState() {
   if (notice.classList.contains("text-green-600")) {
     notice.classList.toggle("text-green-600");
     notice.textContent = null;
@@ -33,15 +33,15 @@ function toggleErrorFormState() {
   notice.textContent = "Please provide a valid email address";
 }
 
-function toggleSuccessFormState() {
+function _toggleSuccessFormState() {
   notice.classList.toggle("text-green-600");
   notice.classList.toggle("invisible");
   notice.textContent = "Thank you!  We'll let you know when we launch.";
   form.reset();
-  btnNotify.removeEventListener("mouseleave", resetFormState);
+  btnNotify.removeEventListener("mouseleave", _resetFormState);
 }
 
-function resetFormState() {
+function _resetFormState() {
   if (emailInput.classList.contains("border-[--light-red]")) {
     emailInput.classList.toggle("border-[--light-red]");
     emailInput.classList.toggle("border-[--pale-blue]");
