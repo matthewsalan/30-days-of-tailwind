@@ -1,6 +1,8 @@
 # Day 1 - Frontend Mentor NFT Preview Card
 [Link To Challenge](https://www.frontendmentor.io/challenges/nft-preview-card-component-SbdUL_w0U)
 
+[Live Preview](https://30-days-of-tailwind-day-1.netlify.app/)
+
 ## Details
 
 Small first challenge to build a NFT preview card.
