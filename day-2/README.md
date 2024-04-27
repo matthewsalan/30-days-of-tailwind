@@ -1,5 +1,6 @@
 # Day 2 - Frontend Mentor 3-Column Preview Card Component
 [Link To Challenge](https://www.frontendmentor.io/challenges/3column-preview-card-component-pH92eAR2-)
+[Live Preview](https://30-days-of-tailwind-day-2.netlify.app/)
 
 ## Details
 
