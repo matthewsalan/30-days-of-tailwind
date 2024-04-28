@@ -562,9 +562,8 @@ video {
   position: relative;
 }
 
-.mx-6 {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+.bottom-1 {
+  bottom: 0.25rem;
 }
 
 .my-4 {
@@ -591,10 +590,6 @@ video {
 
 .ml-auto {
   margin-left: auto;
-}
-
-.mt-20 {
-  margin-top: 5rem;
 }
 
 .mt-28 {
@@ -769,9 +764,8 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:mx-0 {
-    margin-left: 0px;
-    margin-right: 0px;
+  .md\:bottom-8 {
+    bottom: 2rem;
   }
 
   .md\:flex {
