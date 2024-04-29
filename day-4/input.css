@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark-slate-grey: hsl(234, 29%, 20%);
+  --tomato: hsl(4, 100%, 67%);
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.bg-dark-slate {
+  background-color: var(--dark-slate-grey);
+}
+
+.bg-tomato {
+  background-color: var(--tomato);
+}
+
+.text-charcoal {
+  color: hsl(235, 18%, 26%);
+}
+
+.text-light-grey {
+  color: hsl(231, 7%, 60%);
+}
+
+.border-light-grey {
+  border-color: hsl(231, 7%, 60%);
+}
+
