@@ -5,6 +5,7 @@
 :root {
   --dark-slate-grey: hsl(234, 29%, 20%);
   --tomato: hsl(4, 100%, 67%);
+  --light-grey: hsl(231, 7%, 60%);
 }
 
 .roboto-regular {
@@ -35,7 +36,24 @@
   color: hsl(231, 7%, 60%);
 }
 
-.border-light-grey {
-  border-color: hsl(231, 7%, 60%);
+.modal-hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.45s;
 }
 
+.modal-show {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.45s;
+}
+
+.form-error {
+  background:rgba(255, 98, 87, 0.1);
+  border-color: 1px solid var(--tomato);
+  color: var(--tomato);
+}
+
+.notice-error {
+  color: var(--tomato);
+}

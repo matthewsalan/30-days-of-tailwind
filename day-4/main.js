@@ -1,41 +1,55 @@
 "use-strict";
 
 const btnSubmit = document.querySelector(".btn-submit");
+const btnDismiss = document.querySelector(".btn-dismiss");
 const form = document.querySelector("#form");
 const emailInput = document.querySelector("#email");
+const modalEmail = document.querySelector(".modal-email");
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const notice = document.querySelector(".notice");
+const successModal = document.querySelector(".success-modal");
 
 btnSubmit.addEventListener("click", function (e) {
   e.preventDefault();
   _handleFormSubmission();
 });
 
-function _handleFormSubmission() {
-  let entries = Object.fromEntries(new FormData(form));
-  if (_dirtyForm()) _resetFormState();
+btnDismiss.addEventListener("click", _toggleSuccessModal);
 
-  if (_validEmail(entries)) {
-    _toggleErrorFormState();
-    notice.textContent = "Valid email required";
+emailInput.addEventListener("input", function () {
+  if (emailRegex.test(emailInput.value)) {
+    _validFormState();
   } else {
-    _toggleSuccessFormState();
+    _toggleFormError();
   }
+});
+
+function _handleFormSubmission() {
+  emailRegex.test(emailInput.value) ? _toggleFormSuccess() : _toggleFormError();
 }
 
-function _validEmail(entries) {
-  return entries.email === "" || !emailRegex.test(emailInput.value);
-}
-
-function _dirtyForm() {
-  return notice.classList.contains("text-[--tomato]");
-}
-
-function _toggleErrorFormState() {
-  notice.classList.toggle("text-[--tomato]");
-}
-
-function _toggleSuccessFormState() {
+function _toggleFormSuccess() {
+  modalEmail.textContent = emailInput.value;
+  _toggleSuccessModal();
   form.reset();
-  _displaySuccessModal();
+}
+
+function _toggleSuccessModal() {
+  setTimeout(() => {
+    successModal.classList.toggle("modal-hidden");
+    successModal.classList.toggle("modal-show");
+  }, 300);
+}
+
+function _toggleFormError() {
+  notice.classList.add("notice-error");
+  notice.textContent = "Valid email required";
+  emailInput.classList.add("focus-visible:outline-[--tomato]");
+  emailInput.classList.add("form-error");
+}
+function _validFormState() {
+  notice.classList.remove("notice-error");
+  notice.textContent = null;
+  emailInput.classList.remove("focus-visible:outline-[--tomato]");
+  emailInput.classList.remove("form-error");
 }

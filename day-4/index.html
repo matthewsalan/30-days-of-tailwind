@@ -12,50 +12,47 @@
     <link rel="stylesheet" href="output.css">
     <script src="main.js" async defer></script>
   </head>
-  <body class="bg-white md:bg-[--dark-slate-grey] justify-center items-center h-screen md:flex flex-col px-3 lg:px-0">
-    <main class="bg-white max-w-4xl rounded-3xl md:flex roboto-regular md:p-5">
-      <section class="md:py-4 md:pr-12 md:pl-6">
-        <figure class="md:hidden">
-          <img src="assets/images/illustration-sign-up-mobile.svg"
-            alt="newsletter mobile sign up illustration" class="mx-auto">
-        </figure>
-        <div class="px-5 md:px-0 md:p-5">
-          <h1 class="roboto-bold mt-9 mb-4 md:mb-8 text-4xl lg:text-[55px]">Stay updated!</h1>
-          <p class="text-base mb-4">Join 60,000+ product managers receiving monthly updates on:</p>
-          <ul class="text-base space-y-3 mb-8">
-            <li class="flex gap-x-4">
-              <img src="assets/images/icon-list.svg" alt="check mark icon svg">
-              Product discovery and building what matters
-            </li>
-            <li class="flex gap-x-4">
-              <img src="assets/images/icon-list.svg" alt="check mark icon svg">
-              Measuring to ensure updates are a success
-            </li>
-            <li class="flex gap-x-4">
-              <img src="assets/images/icon-list.svg" alt="check mark icon svg">
-              And much more!
-            </li>
-          </ul>
-          <form id="form">
-            <div class="my-2">
-              <label for="email" class="roboto-bold">Email address</label>
-              <span class="text-sm float-right text-center notice"></span>
-            </div>
-            <input type="email" name="email" id="email" placeholder="email@company.com"
-              class="border p-4 rounded-lg block mb-6 w-full border-[--dark-slate-grey] focus-visible:outline-[--dark-slate-grey]
-                text-[--dark-slate-grey] placeholder:text-[text-light-grey]">
-            <button type="submit" class="btn-submit border p-4 rounded-lg block w-full text-white bg-dark-slate
-              hover:bg-gradient-to-r hover:from-pink-500 hover:to-orange-400">
-              Subscribe to monthly newsletter
-            </button>
-          </form>
-        </div>
-      </section>
-      <figure class="hidden md:contents">
-        <img src="assets/images/illustration-sign-up-desktop.svg" alt="newsletter sign-up illustration">
-      </figure>
+  <body class="bg-white md:bg-[--dark-slate-grey] justify-center items-center h-screen md:flex md:flex-col">
+    <main class="max-w-4xl bg-white p-0 md:p-5 rounded-3xl lg:flex main-container">
+      <picture class="lg:hidden">
+        <img src="assets/images/illustration-sign-up-mobile.svg" alt="" class="w-full md:rounded-3xl">
+      </picture>
+      <div class="mt-8 lg:mt-11 mr-6 lg:mr-8 ml-6 mb-6 text-[--dark-slate-grey]">
+        <h1 class="roboto-bold text-[2.5rem] lg:text-[3.46rem] mb-3">Stay updated!</h1>
+        <p class="">Join 60,000+ product managers receiving monthly updates on:</p>
+        <ul class="text-base md:mt-4 mt-6 space-y-2">
+          <li class="flex items-start gap-x-4">
+            <img src="assets/images/icon-list.svg" alt="check mark icon svg">
+            Product discovery and building what matters
+          </li>
+          <li class="flex items-start gap-x-4">
+            <img src="assets/images/icon-list.svg" alt="check mark icon svg">
+            Measuring to ensure updates are a success
+          </li>
+          <li class="flex items-start gap-x-4">
+            <img src="assets/images/icon-list.svg" alt="check mark icon svg">
+            And much more!
+          </li>
+        </ul>
+        <form id="form" class="mt-4 lg:mt-8">
+          <div class="mb-2 w-full lg:w-10/12">
+            <label for="email" class="roboto-bold text-sm">Email address</label>
+            <span class="text-sm float-right text-center notice"></span>
+          </div>
+          <input type="email" name="email" id="email" placeholder="email@company.com"
+            class="border p-4 rounded-lg block w-full lg:w-10/12 border-[--light-grey] focus-visible:outline-[--dark-slate-grey]
+              text-[--dark-slate-grey] placeholder:text-[text-light-grey]">
+          <button type="submit" class="btn-submit border p-4 rounded-lg block w-full lg:w-10/12 text-white text-sm font-semibold bg-dark-slate
+            hover:bg-gradient-to-r hover:from-pink-500 hover:to-orange-400 mt-6">
+            Subscribe to monthly newsletter
+          </button>
+        </form>
+      </div>
+      <picture class="hidden lg:block">
+        <img src="assets/images/illustration-sign-up-desktop.svg" alt="newsletter sign-up illustration" class="w-full">
+      </picture>
     </main>
-    <footer class="text-white text-center mt-6 md:flex gap-x-2">
+    <footer class="footer-container text-white text-center mt-12 md:flex gap-x-2">
       <p class="text-[--dark-slate-grey] md:text-white">Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           class="text-pink-500">
         Frontend Mentor</a>.
@@ -65,14 +62,22 @@
         Alan Matthews</a>.
       </p>
     </footer>
+    <section class="success-modal modal-hidden bg-white md:bg-[--dark-slate-grey] fixed z-10 overflow-auto
+      md:items-center md:justify-center flex h-screen w-screen top-0">
+      <div class="md:bg-white rounded-3xl max-w-lg">
+        <div class="p-16 absolute top-16 md:static md:top-0">
+          <img src="assets/images/icon-success.svg" alt="check mark icon">
+          <h1 class="mt-10 roboto-bold text-4xl md:text-6xl text-[--dark-slate-grey]">Thanks for subscribing!</h1>
+          <p class="mt-10 roboto-regular text-base">
+            A confirmation email has been sent to <span class="roboto-bold modal-email"></span>.
+            Please open it and click the button inside to confirm your subscription.
+          </p>
+          <button class="btn-dismiss roboto-bold text-white bg-[--dark-slate-grey] rounded-lg p-4 fixed left-16 right-16 bottom-12
+            md:static md:bottom-0 md:left-0 md:right-0 md:w-full md:mt-10 hover:bg-gradient-to-r hover:from-pink-500 hover:to-orange-400">
+            Dismiss message
+          </button>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
-
-
-<!-- Thanks for subscribing!
-
-A confirmation email has been sent to ash@loremcompany.com.
-Please open it and click the button inside to confirm your subscription.
-
-Dismiss message -->
-
