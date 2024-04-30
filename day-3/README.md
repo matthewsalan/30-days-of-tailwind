@@ -1,13 +1,13 @@
 # Day 3 - Frontend Mentor - Ping Coming Soon Page
 [Link to challenge](https://www.frontendmentor.io/challenges/ping-single-column-coming-soon-page-5cadd051fec04111f7b848da) 
 
-[Live Preview](https://30-days-of-tailwind-day-3.netlify.app/)
+[Live preview](https://30-days-of-tailwind-day-3.netlify.app/)
 
 ## Details
 Build out a Coming Soon page and get it looking as close to the design as possible.
 
 ## Requirements
-Your users should be able to: 
+Users should be able to: 
 * View the optimal layout for the site depending on their device's screen size
 * See hover states for all interactive elements on the page
 * Submit their email address using an `input` field
