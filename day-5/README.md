@@ -1,4 +1,4 @@
-# Day 4 - Frontend Mentor - Notifications Page
+# Day 5 - Frontend Mentor - Notifications Page
 
 [Link to challenge](https://www.frontendmentor.io/challenges/notifications-page-DqK5QAmKbC)
 
