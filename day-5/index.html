@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Frontend Mentor | Notifications page</title>
+    <link rel="stylesheet" href="output.css">
+    <script src="main.js" async defer></script>
+  </head>
+  <body class="md:max-w-[39rem] md:mx-auto md:bg-[--very-light-gray-blue] justify-center md:items-center h-screen flex md:flex-col">
+    <main class="font-jakarta font-[500] text-[--dark-gray-blue] grid pt-6 px-6 md:bg-[--primary-white] md:rounded-2xl md:shadow-lg">
+      <header class="flex items-center">
+        <h2 class="font-extrabold text-[--very-dark-blue] text-xl align-baseline inline">Notifications</h2>
+        <p class="text-white font-semibold ml-2 bg-[--primary-blue] px-3 py-0.5 rounded-md notifications">3</p>
+        <button class="font-normal text-sm ml-auto hover:text-[--primary-blue] hover:font-[500] btn-read">Mark all as read</button>
+      </header>
+      <section class="bg-[--very-light-gray-blue] flex space-x-3 mt-6 mb-2 p-4 rounded-md unread">
+        <img src="assets/images/avatar-mark-webber.webp" alt="Mark Webber avatar" class="h-12 w-12">
+        <div class="text-sm">
+          <p>
+            <span class="text-[--very-dark-blue] font-bold hover:cursor-pointer hover:text-[--primary-blue]">Mark Webber</span> reacted to your recent post
+            <span class="text-[--dark-gray-blue] font-bold hover:cursor-pointer hover:text-[--primary-blue]">My first tournament today!</span>
+            <svg class="h-3 w-3 fill-[--primary-red] inline-flex ml-1 align-bottom" viewBox="0 0 6 6" aria-hidden="true">
+              <circle cx="2" cy="2" r="2"></circle>
+            </svg>
+          </p>
+          <p class="font-normal mt-1">
+            1m ago
+          </p>
+        </div>
+      </section>
+      <section class="bg-[--very-light-gray-blue] flex space-x-3 my-2 p-4 rounded-md unread">
+        <img src="assets/images/avatar-angela-gray.webp" alt="Angela Gray avatar" class="h-12 w-12">
+        <div class="text-sm">
+          <p>
+            <span class="text-[--very-dark-blue] font-bold hover:text-[--primary-blue] hover:cursor-pointer">Angela Gray</span> followed you
+            <svg class="h-3 w-3 fill-[--primary-red] inline-flex ml-1 align-bottom" viewBox="0 0 6 6" aria-hidden="true">
+              <circle cx="2" cy="2" r="2"></circle>
+            </svg>
+          </p>
+          <p class="font-normal mt-1">
+            5m ago
+          </p>
+        </div>
+      </section>
+      <section class="bg-[--very-light-gray-blue] flex space-x-3 my-2 p-4 rounded-md unread">
+        <img src="assets/images/avatar-jacob-thompson.webp" alt="Jacob Thompson avatar" class="h-12 w-12">
+        <div class="text-sm">
+          <p>
+            <span class="text-[--very-dark-blue] font-bold hover:text-[--primary-blue] hover:cursor-pointer">
+              Jacob Thompson
+            </span> has joined your group
+            <span class="font-bold text-[--primary-blue] hover:cursor-pointer">Chess Club</span>
+            <svg class="h-3 w-3 fill-[--primary-red] inline-flex ml-1 align-bottom" viewBox="0 0 6 6" aria-hidden="true">
+              <circle cx="2" cy="2" r="2"></circle>
+            </svg>
+          </p>
+          <p class="font-normal mt-1">
+            1 day ago
+          </p>
+        </div>
+      </section>
+      <section class="flex space-x-3 my-2 p-4 rounded-md">
+        <img src="assets/images/avatar-rizky-hasanuddin.webp" alt="Rizky Hasanuddin avatar" class="h-12 w-12">
+        <div class="text-sm">
+          <p>
+            <span class="font-bold test-[--very-dark-blue] hover:text-[--primary-blue] hover:cursor-pointer">
+              Rizky Hasanuddin
+            </span> sent you a private message
+          </p>
+          <p class="font-normal mt-1">
+            5 days ago
+          </p>
+          <p class="mt-3 border border-[--light-gray-blue-2] rounded-md p-4 hover:bg-[--light-gray-blue-1] hover:cursor-pointer">
+            Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and
+            I'm already having lots of fun and improving my game.
+          </p>
+        </div>
+      </section>
+      <section class="flex my-2 p-4 rounded-md">
+        <div class="space-x-3 flex">
+          <img src="assets/images/avatar-kimberly-smith.webp" alt="Kimberly Smith avatar" class="h-12 w-12">
+          <div class="text-sm">
+            <p>
+              <span class="font-bold text-[--very-dark-blue] hover:text-[--primary-blue] hover:cursor-pointer">
+                Kimberly Smith
+              </span> commented on your picture
+            </p>
+            <p class="font-normal mt-1">
+              1 week ago
+            </p>
+          </div>
+        </div>
+        <img src="assets/images/image-chess.webp" alt="person playing chess" class="h-12 w-12 ml-auto
+          hover:border-2 hover:border-[--light-gray-blue-1] hover:rounded-lg hover:cursor-pointer">
+      </section>
+      <section class="flex space-x-3 my-2 p-4 rounded-md">
+        <img src="assets/images/avatar-nathan-peterson.webp" alt="Nathan Peterson avatar" class="h-12 w-12">
+        <div class="text-sm">
+          <p>
+            <span class="font-bold text-[--very-dark-blue] hover:text-[--primary-blue] hover:cursor-pointer">Nathan Peterson</span>
+            reacted to your recent post
+            <span class="font-bold text-[--dark-gray-blue] hover:text-[--primary-blue] hover:cursor-pointer">
+              5 end-game strategies to increase your win rate
+            </span>
+          </p>
+          <p class="font-normal mt-1">
+            2 weeks ago
+          </p>
+        </div>
+      </section>
+      <section class="flex space-x-3 mt-2 p-4 rounded-md">
+        <img src="assets/images/avatar-anna-kim.webp" alt="Anna Kim avatar" class="h-12 w-12">
+        <div class="text-sm">
+          <p>
+            <span class="font-bold text-[--very-dark-blue] hover:text-[--primary-blue] hover:cursor-pointer">Anna Kim</span> left the group
+            <span class="font-bold text-[--primary-blue] hover:cursor-pointer">Chess Club</span>
+          </p>
+          <p class="font-normal mt-1">
+            2 weeks ago
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer class="hidden md:flex place-content-center space-x-2 mt-2 text-[11px]">
+      <p>Challenge by
+        <a href="https://www.frontendmentor.io/challenges/notifications-page-DqK5QAmKbC" target="_blank" class="underline">Frontend Mentor</a>
+      </p>
+      <p>Coded by
+        <a href="https://www.alanmatthews.net/" target="_blank" class="underline">Alan Matthews</a>
+      </p>
+    </footer>
+  </body>
+</html>
