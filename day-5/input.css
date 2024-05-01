@@ -19,3 +19,7 @@
   --dark-gray-blue: hsl(219, 12%, 42%);
   --very-dark-blue: hsl(224, 21%, 14%);
 }
+
+.unread {
+  cursor: pointer;
+}
