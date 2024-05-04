@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --moderate-cyan: hsl(176, 50%, 47%);
+  --dark-cyan: hsl(176, 72%, 28%);
+  --dark-gray: hsl(0, 0%, 48%);
+}
+
+.font-commissioner {
+  font-family: "Commissioner", sans-serif;
+}
+
+.logo {
+  transform: translate(-7%, -12%)
+}
