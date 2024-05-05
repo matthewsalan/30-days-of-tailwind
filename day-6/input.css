@@ -15,3 +15,33 @@
 .logo {
   transform: translate(-7%, -12%)
 }
+
+.svg-circle {
+  fill: var(--dark-cyan);
+}
+
+.svg-bookmark {
+  fill: white;
+}
+
+a.left-hover
+{
+    position: relative;
+}
+
+a.left-hover:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #FFF;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+a.left-hover:hover:before {
+  visibility: visible;
+  width: 100%;
+}
