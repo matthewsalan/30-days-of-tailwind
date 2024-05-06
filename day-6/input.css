@@ -45,3 +45,9 @@ a.left-hover:hover:before {
   visibility: visible;
   width: 100%;
 }
+
+input[type=radio] {
+  accent-color: var(--dark-cyan);
+  width: 20px;
+  height: 20px;
+}
