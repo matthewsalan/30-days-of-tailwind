@@ -5,14 +5,17 @@ const iconBookmark = document.querySelector(".bookmark-icon");
 const bookMarkCircle = document.querySelector(".bookmark-circle");
 const bookmarkText = document.querySelector(".bookmark-text");
 const btnRewards = document.querySelectorAll(".btn--reward");
-const rewardModal = document.querySelector(".modal--reward");
 const btnRadio = document.querySelector(".btn--radio");
+const btnModalClose = document.querySelector(".btn--modal--close");
+const pledgeModal = document.querySelector(".pledge--modal");
+const dollarAmount = document.getElementById("dollar--amount");
+const form = document.querySelector(".form");
+const pledgeSection = document.querySelector(".pledge--section");
 
 btnBookmark.addEventListener("click", _bookmark);
-
 btnRewards.forEach((reward) => reward.addEventListener("click", _openModal));
-
-// btnRadio.addEventListener("click", _markSelectedBtn);
+btnModalClose.addEventListener("click", _closeModal);
+btnRadio.addEventListener("click", _markAsSelected);
 
 function _bookmark() {
   btnBookmark.classList.add("text-[--dark-cyan]");
@@ -23,9 +26,17 @@ function _bookmark() {
 }
 
 function _openModal() {
-  rewardModal.classList.remove("hidden");
+  pledgeModal.classList.remove("hidden");
 }
 
-function _markSelectedBtn() {
-  btnRadio.classList.add("bg-[--moderate-cyan]");
+function _closeModal() {
+  pledgeModal.classList.add("hidden");
+  form.reset();
+  btnRadio.checked = false;
+  pledgeSection.classList.add("hidden");
+}
+
+function _markAsSelected() {
+  dollarAmount.value = "25";
+  pledgeSection.classList.remove("hidden");
 }
