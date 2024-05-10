@@ -42,6 +42,7 @@ btnBookmark.addEventListener("click", _bookmark);
 btnCompleted.addEventListener("click", function () {
   _toggleCompletedModal();
   _updateGoals();
+  body.classList.remove("overflow-hidden");
 });
 
 btnContinue.forEach((btn) => {
@@ -135,7 +136,6 @@ function _removeCurrentSelectedReward() {
 function _toggleCompletedModal() {
   completedModal.classList.toggle("hidden");
   pledgeModal.classList.add("hidden");
-  body.classList.remove("overflow-hidden");
   _removeCurrentSelectedReward();
 }
 
