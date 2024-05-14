@@ -43,3 +43,8 @@
   font-weight: 700;
   font-style: normal;
 }
+
+input[type="checkbox"] {
+  accent-color: var(--purplish-blue);
+}
+
