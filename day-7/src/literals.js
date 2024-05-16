@@ -70,9 +70,9 @@ export function planForm() {
           </div>
           <div class="md:mt-12 mt-4 bg-[--alabaster] border border-[--light-gray] rounded-lg w-full p-4 flex justify-center space-x-6">
             <p class="font-semibold text-[--marine-blue] md:text-base text-sm">Monthly</p>
-            <button type="button" class="bg-[--marine-blue] relative inline-flex h-5 w-10 flex-shrink-0 cursor-pointer
-              rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out" role="switch" aria-checked="false">
-              <span aria-hidden="true" class="translate-x-0 pointer-events-none inline-block h-4 w-4 transform
+            <button type="button" class="plan--toggle bg-[--marine-blue] relative inline-flex h-5 w-10 flex-shrink-0 cursor-pointer
+              rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out" role="switch">
+              <span aria-hidden="true" class="plan--slider translate-x-0 pointer-events-none inline-block h-4 w-4 transform
                 rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
             </button>
             <p class="md:text-base text-sm text-[--cool-gray]">Yearly</p>
@@ -210,7 +210,7 @@ export function summaryForm() {
 
 export function thankYouForm() {
   return `
-    <div class="xl:p-16 py-8 px-4 md:mt-[20%]">
+    <div class="xl:p-16 py-8 px-4 xl:mt-[20%]">
       <div class="grid justify-center justify-items-center text-center space-y-6">
         <div>
           <img src="/assets/images/icon-thank-you.svg" alt="" class="">

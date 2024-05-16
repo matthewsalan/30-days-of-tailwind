@@ -23,9 +23,10 @@ const userObj = {
 
 const formSection = document.querySelectorAll(".form--section");
 let formStep = "personal";
-let currentStepNumber = document.querySelector(".current--step");
+let currentStepNumber = document.querySelectorAll(".current--step");
 let currentPlanElement;
 let currentAddOns;
+const mobileBackBtn = document.querySelector(".mobile--back--btn");
 
 window.addEventListener("DOMContentLoaded", function () {
   _insertForm();
@@ -37,6 +38,10 @@ function _addButtonEventListeners() {
     .querySelectorAll(".btn--next")
     .forEach((btn) => btn.addEventListener("click", _nextStep));
 
+  document
+    .querySelectorAll(".btn--back")
+    .forEach((btn) => btn.addEventListener("click", _backStep));
+
   if (formStep == "plan") {
     [".btn--arcade", ".btn--pro", ".btn--advanced"].forEach((btn) => {
       let element = document.querySelector(btn);
@@ -46,6 +51,10 @@ function _addButtonEventListeners() {
         currentPlanElement = element;
       });
     });
+
+    document
+      .querySelector(".plan--toggle")
+      .addEventListener("click", _togglePlanType);
   }
 }
 
@@ -68,13 +77,13 @@ function _nextStep() {
       _updatePlanInfo(document.querySelector(".step--two"));
       formStep = "addOns";
       _insertForm(addOnsForm());
-      _updateStepNumber(document.querySelector(".step--3"));
+      _updateStepNumber(document.querySelectorAll(".step--3"));
       break;
     case "addOns":
       _updateAddOnInfo(document.querySelector(".step--three"));
       formStep = "summary";
       _insertForm(summaryForm());
-      _updateStepNumber(document.querySelector(".step--4"));
+      _updateStepNumber(document.querySelectorAll(".step--4"));
       break;
     case "summary":
       _insertForm(thankYouForm());
@@ -83,10 +92,33 @@ function _nextStep() {
       _updatePersonalInfo(document.querySelector(".step--one"));
       formStep = "plan";
       _insertForm(planForm());
-      _updateStepNumber(document.querySelector(".step--2"));
+      _updateStepNumber(document.querySelectorAll(".step--2"));
       break;
   }
-  currentStepNumber = document.querySelector(".current--step");
+  currentStepNumber = document.querySelectorAll(".current--step");
+  _toggleMobileBackBtn();
+}
+
+function _backStep() {
+  switch (formStep) {
+    case "summary":
+      formStep = "addOns";
+      _insertForm(addOnsForm());
+      _updateStepNumber(document.querySelectorAll(".step--3"));
+      break;
+    case "addOns":
+      formStep = "plan";
+      _insertForm(planForm());
+      _updateStepNumber(document.querySelectorAll(".step--2"));
+      break;
+    default:
+      formStep = "personal";
+      _insertForm(personalForm());
+      _updateStepNumber(document.querySelectorAll(".step--1"));
+      break;
+  }
+  currentStepNumber = document.querySelectorAll(".current--step");
+  _toggleMobileBackBtn();
 }
 
 function _updatePersonalInfo(stepOne) {
@@ -113,11 +145,29 @@ function _applyPlanBtnStyles(element) {
   element.classList.toggle("bg-[--alabaster]");
 }
 
-function _updateStepNumber(element) {
-  currentStepNumber.classList.toggle("bg-[--light-blue]");
-  currentStepNumber.classList.toggle("text-white");
-  currentStepNumber.classList.toggle("current--step");
-  element.classList.toggle("bg-[--light-blue]");
-  element.classList.toggle("text-white");
-  element.classList.toggle("current--step");
+function _updateStepNumber(elements) {
+  currentStepNumber.forEach((num) => {
+    num.classList.toggle("bg-[--light-blue]");
+    num.classList.toggle("text-white");
+    num.classList.toggle("current--step");
+  });
+  elements.forEach((element) => {
+    element.classList.toggle("bg-[--light-blue]");
+    element.classList.toggle("text-white");
+    element.classList.toggle("current--step");
+  });
+}
+
+function _toggleMobileBackBtn() {
+  if (formStep === "personal") {
+    mobileBackBtn.classList.add("hidden");
+  } else {
+    mobileBackBtn.classList.remove("hidden");
+  }
+}
+
+function _togglePlanType() {
+  let planSlider = document.querySelector(".plan--slider");
+  planSlider.classList.toggle("translate-x-0");
+  planSlider.classList.toggle("translate-x-5");
 }
