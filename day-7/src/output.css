@@ -681,6 +681,10 @@ video {
   margin-right: auto;
 }
 
+.block {
+  display: block;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -1134,6 +1138,10 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[--\] {
+  color: var(--);
 }
 
 .underline {

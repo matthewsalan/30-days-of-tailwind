@@ -33,7 +33,7 @@ export function personalForm() {
   `;
 }
 
-export function planForm() {
+export function planForm(planInfo) {
   return `
     <div class="xl:p-16 py-8 px-4">
       <div class="space-y-2 md:space-y-3">
@@ -43,39 +43,82 @@ export function planForm() {
       <div>
         <form class="step--two md:mt-12 mt-4">
           <div class="md:grid md:grid-cols-3 md:grid-flow-col grid grid-flow-row md:gap-x-6 gap-y-3">
-            <div class="border border-[--light-gray] rounded-lg p-4 flex md:block hover:cursor-pointer hover:bg-[--alabaster]
+            <div class="border ${
+              planInfo[1].level === "Arcade"
+                ? "border-[--purplish-blue] bg-[--alabaster]"
+                : "border-[--light-gray]"
+            }
+              ${planInfo[1].level === "Arcade" ? "current--plan" : ""}
+              rounded-lg p-4 flex md:block hover:cursor-pointer hover:bg-[--alabaster]
               hover:border-[--purplish-blue] btn--arcade">
               <img src="/assets/images/icon-arcade.svg" alt="arcade icon" class="md:w-12 md:h-12 w-10 h-10">
               <div class="ml-4 md:ml-0 md:mt-16 md:space-y-1">
-                <p class="font-semibold text-[--marine-blue] md:text-base text-sm">Arcade</p>
-                <p class="text-[--cool-gray] md:text-base text-sm">$9/mo</p>
+                <p class="font-semibold text-[--marine-blue] md:text-base text-sm label--plan">Arcade</p>
+                <p class="text-[--cool-gray] md:text-base text-sm">$${
+                  planInfo[0].costs[0]
+                }/${planInfo[1].type}</p>
+                <p class="${
+                  planInfo[0].type === "yr" ? "block" : "hidden"
+                } text-sm text-[--marine-blue]">2 months free</p>
               </div>
             </div>
-            <div class="border border-[--light-gray] rounded-lg p-4 flex md:block hover:cursor-pointer hover:bg-[--alabaster]
+            <div class="border ${
+              planInfo[1].level === "Advanced"
+                ? "border-[--purplish-blue] bg-[--alabaster]"
+                : "border-[--light-gray]"
+            }
+            ${planInfo[1].level === "Advanced" ? "current--plan" : ""}
+              rounded-lg p-4 flex md:block hover:cursor-pointer hover:bg-[--alabaster]
               hover:border-[--purplish-blue] btn--advanced">
               <img src="/assets/images/icon-advanced.svg" alt="advanced controller icon" class="md:w-12 md:h-12 w-10 h-10">
               <div class="ml-4 md:ml-0 md:mt-16 md:space-y-1">
-                <p class="font-semibold text-[--marine-blue] md:text-base text-sm">Advanced</p>
-                <p class="text-[--cool-gray] md:text-base text-sm">$12/mo</p>
+                <p class="font-semibold text-[--marine-blue] md:text-base text-sm label--plan">Advanced</p>
+                <p class="text-[--cool-gray] md:text-base text-sm">$${
+                  planInfo[0].costs[1]
+                }/${planInfo[1].type}</p>
+                <p class="${
+                  planInfo[0].type === "yr" ? "block" : "hidden"
+                } text-sm text-[--marine-blue]">2 months free</p>
               </div>
             </div>
-            <div class="border border-[--light-gray] rounded-lg p-4 flex md:block hover:cursor-pointer hover:bg-[--alabaster]
+            <div class="border ${
+              planInfo[1].level === "Pro"
+                ? "border-[--purplish-blue] bg-[--alabaster]"
+                : "border-[--light-gray]"
+            }
+            ${planInfo[1].level === "Pro" ? "current--plan" : ""}
+              rounded-lg p-4 flex md:block hover:cursor-pointer hover:bg-[--alabaster]
               hover:border-[--purplish-blue] btn--pro">
               <img src="/assets/images/icon-pro.svg" alt="pro controller icon" class="md:w-12 md:h-12 w-10 h-10">
               <div class="ml-4 md:ml-0 md:mt-16 md:space-y-1">
-                <p class="font-semibold text-[--marine-blue] md:text-base text-sm">Pro</p>
-                <p class="text-[--cool-gray] md:text-base text-sm">$15/mo</p>
+                <p class="font-semibold text-[--marine-blue] md:text-base text-sm label--plan">Pro</p>
+                <p class="text-[--cool-gray] md:text-base text-sm">$${
+                  planInfo[0].costs[2]
+                }/${planInfo[1].type}</p>
+                <p class="${
+                  planInfo[0].type === "yr" ? "block" : "hidden"
+                } text-sm text-[--marine-blue]">2 months free</p>
               </div>
             </div>
           </div>
           <div class="md:mt-12 mt-4 bg-[--alabaster] border border-[--light-gray] rounded-lg w-full p-4 flex justify-center space-x-6">
-            <p class="font-semibold text-[--marine-blue] md:text-base text-sm">Monthly</p>
+            <p class="${
+              planInfo[0].type === "mo"
+                ? `text-[--marine-blue]`
+                : `text-[--cool-gray]`
+            } font-semibold md:text-base text-sm label--monthly">Monthly</p>
             <button type="button" class="plan--toggle bg-[--marine-blue] relative inline-flex h-5 w-10 flex-shrink-0 cursor-pointer
               rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out" role="switch">
-              <span aria-hidden="true" class="plan--slider translate-x-0 pointer-events-none inline-block h-4 w-4 transform
-                rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+              <span aria-hidden="true" class="plan--slider pointer-events-none inline-block h-4 w-4 transform
+                rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
+                  planInfo[0].type === "yr" ? "translate-x-5" : ""
+                }"></span>
             </button>
-            <p class="md:text-base text-sm text-[--cool-gray]">Yearly</p>
+            <p class="font-semibold md:text-base text-sm ${
+              planInfo[0].type === "yr"
+                ? `text-[--marine-blue]`
+                : `text-[--cool-gray]`
+            } label--yearly">Yearly</p>
           </div>
           <div class="hidden xl:block">
             <div class="absolute bottom-8 right-24">

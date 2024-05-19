@@ -15,17 +15,26 @@ const userObj = {
     phone: null,
   },
   plan: {
-    type: null,
+    type: "mo",
     level: null,
     addOns: [],
   },
+};
+
+const monthlyPlan = {
+  type: "mo",
+  costs: [9, 12, 15],
+};
+
+const yearlyPlan = {
+  type: "yr",
+  costs: [90, 120, 150],
 };
 
 const formSection = document.querySelectorAll(".form--section");
 let formStep = "personal";
 let currentStepNumber = document.querySelectorAll(".current--step");
 let currentPlanElement;
-let currentAddOns;
 const mobileBackBtn = document.querySelector(".mobile--back--btn");
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -46,9 +55,9 @@ function _addButtonEventListeners() {
     [".btn--arcade", ".btn--pro", ".btn--advanced"].forEach((btn) => {
       let element = document.querySelector(btn);
       element.addEventListener("click", function () {
+        currentPlanElement = document.querySelector(".current--plan");
         if (currentPlanElement) _applyPlanBtnStyles(currentPlanElement);
-        _applyPlanBtnStyles(element);
-        currentPlanElement = element;
+        _updatePlanLevel(element);
       });
     });
 
@@ -74,7 +83,6 @@ function _removeCurrentForm() {
 function _nextStep() {
   switch (formStep) {
     case "plan":
-      _updatePlanInfo(document.querySelector(".step--two"));
       formStep = "addOns";
       _insertForm(addOnsForm());
       _updateStepNumber(document.querySelectorAll(".step--3"));
@@ -91,7 +99,13 @@ function _nextStep() {
     default:
       _updatePersonalInfo(document.querySelector(".step--one"));
       formStep = "plan";
-      _insertForm(planForm());
+      _insertForm(
+        planForm(
+          userObj.plan.type === "mo"
+            ? Array(monthlyPlan, userObj.plan)
+            : Array(yearlyPlan, userObj.plan)
+        )
+      );
       _updateStepNumber(document.querySelectorAll(".step--2"));
       break;
   }
@@ -108,7 +122,13 @@ function _backStep() {
       break;
     case "addOns":
       formStep = "plan";
-      _insertForm(planForm());
+      _insertForm(
+        planForm(
+          userObj.plan.type === "mo"
+            ? Array(monthlyPlan, userObj.plan)
+            : Array(yearlyPlan, userObj.plan)
+        )
+      );
       _updateStepNumber(document.querySelectorAll(".step--2"));
       break;
     default:
@@ -128,10 +148,9 @@ function _updatePersonalInfo(stepOne) {
   userObj.personal.phone = entries.phone;
 }
 
-function _updatePlanInfo(stepTwo) {
-  let entries = Object.fromEntries(new FormData(stepTwo));
-  userObj.plan.type = entries.type;
-  userObj.plan.level = entries.level;
+function _updatePlanLevel(element) {
+  userObj.plan.level = element.querySelector(".label--plan").textContent;
+  _applyPlanBtnStyles(element);
 }
 
 function _updateAddOnInfo(stepThree) {
@@ -140,6 +159,7 @@ function _updateAddOnInfo(stepThree) {
 }
 
 function _applyPlanBtnStyles(element) {
+  element.classList.toggle("current--plan");
   element.classList.toggle("border-[--light-gray]");
   element.classList.toggle("border-[--purplish-blue]");
   element.classList.toggle("bg-[--alabaster]");
@@ -168,6 +188,35 @@ function _toggleMobileBackBtn() {
 
 function _togglePlanType() {
   let planSlider = document.querySelector(".plan--slider");
-  planSlider.classList.toggle("translate-x-0");
   planSlider.classList.toggle("translate-x-5");
+  if (userObj.plan.type === "mo") {
+    userObj.plan.type = "yr";
+  } else {
+    userObj.plan.type = "mo";
+  }
+  _setPlanType();
+}
+
+function _setPlanType() {
+  let monthly = document.querySelector(".label--monthly");
+  let yearly = document.querySelector(".label--yearly");
+  if (userObj.plan.type === "mo") {
+    _toggleMonthly(monthly, yearly);
+  } else {
+    _toggleYearly(monthly, yearly);
+  }
+}
+
+function _toggleYearly(monthly, yearly) {
+  monthly.classList.add("text-[--cool-gray]");
+  monthly.classList.remove("text-[--marine-blue]");
+  yearly.classList.remove("text-[--cool-gray]");
+  yearly.classList.add("text-[--marine-blue]");
+}
+
+function _toggleMonthly(monthly, yearly) {
+  monthly.classList.remove("text-[--cool-gray]");
+  monthly.classList.add("text-[--marine-blue]");
+  yearly.classList.add("text-[--cool-gray]");
+  yearly.classList.remove("text-[--marine-blue]");
 }
