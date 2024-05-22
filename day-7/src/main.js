@@ -24,11 +24,13 @@ const userObj = {
 const monthlyPlan = {
   type: "mo",
   costs: [9, 12, 15],
+  addOns: [1, 2, 2],
 };
 
 const yearlyPlan = {
   type: "yr",
   costs: [90, 120, 150],
+  addOns: [10, 20, 20],
 };
 
 const formSection = document.querySelectorAll(".form--section");
@@ -84,7 +86,13 @@ function _nextStep() {
   switch (formStep) {
     case "plan":
       formStep = "addOns";
-      _insertForm(addOnsForm());
+      _insertForm(
+        addOnsForm(
+          userObj.plan.type === "mo"
+            ? Array(monthlyPlan, userObj.plan)
+            : Array(yearlyPlan, userObj.plan)
+        )
+      );
       _updateStepNumber(document.querySelectorAll(".step--3"));
       break;
     case "addOns":
@@ -117,7 +125,13 @@ function _backStep() {
   switch (formStep) {
     case "summary":
       formStep = "addOns";
-      _insertForm(addOnsForm());
+      _insertForm(
+        addOnsForm(
+          userObj.plan.type === "mo"
+            ? Array(monthlyPlan, userObj.plan)
+            : Array(yearlyPlan, userObj.plan)
+        )
+      );
       _updateStepNumber(document.querySelectorAll(".step--3"));
       break;
     case "addOns":

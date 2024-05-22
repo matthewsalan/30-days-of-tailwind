@@ -136,7 +136,7 @@ export function planForm(planInfo) {
   `;
 }
 
-export function addOnsForm() {
+export function addOnsForm(planInfo) {
   return `
     <div class="xl:p-16 py-8 px-4">
       <div class="space-y-1 md:space-y-3">
@@ -156,7 +156,7 @@ export function addOnsForm() {
                 <p class="text-[--cool-gray] md:text-base text-sm">Access to multiplayer games</p>
               </div>
               <div class="flex ml-auto">
-                <p class="text-[--purplish-blue] md:text-base text-sm">+$1/mo</p>
+                <p class="text-[--purplish-blue] md:text-base text-sm">+$${planInfo[0].addOns[0]}/${planInfo[0].type}</p>
               </div>
             </div>
             <div class="border border-[--light-gray] rounded-lg md:p-4 p-3 flex items-center hover:cursor-pointer hover:bg-[--alabaster]
@@ -169,7 +169,7 @@ export function addOnsForm() {
                 <p class="text-[--cool-gray] md:text-base text-sm">Extra 1TB of cloud save</p>
               </div>
               <div class="flex ml-auto">
-                <p class="text-[--purplish-blue] md:text-base text-sm">+$2/mo</p>
+                <p class="text-[--purplish-blue] md:text-base text-sm">+$${planInfo[0].addOns[1]}/${planInfo[0].type}</p>
               </div>
             </div>
             <div class="border border-[--light-gray] rounded-lg md:p-4 p-3 flex items-center hover:cursor-pointer hover:bg-[--alabaster]
@@ -182,7 +182,7 @@ export function addOnsForm() {
                 <p class="text-[--cool-gray] md:text-base text-sm">Custom theme on your profile</p>
               </div>
               <div class="flex ml-auto">
-                <p class="text-[--purplish-blue] md:text-base text-sm">+$2/mo</p>
+                <p class="text-[--purplish-blue] md:text-base text-sm">+$${planInfo[0].addOns[2]}/${planInfo[0].type}</p>
               </div>
             </div>
           </div>
