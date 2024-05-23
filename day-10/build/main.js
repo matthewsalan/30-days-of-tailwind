@@ -19,7 +19,9 @@ function _insertJsonData() {
         chartGrid.insertAdjacentHTML(
           "afterbegin",
           `
-            <div class="col-${colCount} tooltip">
+            <div class="col-${colCount} ${_toggleColumnStyles(
+            element
+          )} tooltip">
               <span class="tooltiptext">$${element.amount}</span>
             </div>
           `
@@ -27,4 +29,14 @@ function _insertJsonData() {
         colCount -= 1;
       })
     );
+}
+
+function _toggleColumnStyles(element) {
+  const date = new Intl.DateTimeFormat("en-US", { weekday: "short" }).format(
+    Date.now()
+  );
+
+  return date.toLowerCase() === element.day
+    ? "col-bg-current-day"
+    : "col-bg-day";
 }

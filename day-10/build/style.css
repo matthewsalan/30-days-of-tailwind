@@ -79,81 +79,62 @@ body {
   height: 200px;
 }
 
-.chart-grid .col-1 {
+.chart-grid .col-bg-day {
   background-color: var(--soft-red);
+}
+
+.chart-grid .col-bg-current-day {
+  background-color: var(--cyan);
+}
+
+.chart-grid .col-bg-day:hover {
+  background: hsl(10, 79%, 65%, 0.65);
+}
+
+.chart-grid .col-bg-current-day:hover {
+  background: hsl(186, 34%, 60%, 0.65);
+}
+
+.chart-grid .col-1 {
   border-radius: 0.25rem;
   grid-row-start: 7;
   grid-row-end: 11;
 }
 
-.chart-grid .col-1:hover {
-  background: hsl(10, 79%, 65%, 0.65);
-}
-
 .chart-grid .col-2 {
-  background-color: var(--soft-red);
   border-radius: 0.25rem;
   grid-row-start: 4;
   grid-row-end: 11;
 }
 
-.chart-grid .col-2:hover {
-  background: hsl(10, 79%, 65%, 0.65);
-}
-
 .chart-grid .col-3 {
-  background-color: var(--cyan);
   border-radius: 0.25rem;
   grid-row-start: 1;
   grid-row-end: 11;
 }
 
-.chart-grid .col-3:hover {
-  background: hsl(186, 34%, 60%, 0.65);
-}
-
 .chart-grid .col-4 {
-  background-color: var(--soft-red);
   border-radius: 0.25rem;
   grid-row-start: 5;
   grid-row-end: 11;
 }
 
-.chart-grid .col-4:hover {
-  background: hsl(10, 79%, 65%, 0.65);
-}
-
 .chart-grid .col-5 {
-  background-color: var(--soft-red);
   border-radius: 0.25rem;
   grid-row-start: 6;
   grid-row-end: 11;
 }
 
-.chart-grid .col-5:hover {
-  background: hsl(10, 79%, 65%, 0.65);
-}
-
 .chart-grid .col-6 {
-  background-color: var(--soft-red);
   border-radius: 0.25rem;
   grid-row-start: 3;
   grid-row-end: 11;
 }
 
-.chart-grid .col-6:hover {
-  background: hsl(10, 79%, 65%, 0.65);
-}
-
 .chart-grid .col-7 {
-  background-color: var(--soft-red);
   border-radius: 0.25rem;
   grid-row-start: 5;
   grid-row-end: 11;
-}
-
-.chart-grid .col-7:hover {
-  background: hsl(10, 79%, 65%, 0.65);
 }
 
 .label-grid {
@@ -253,7 +234,7 @@ body {
 
 @media (min-width: 768px) {
   .container {
-    max-width: 24rem;
+    max-width: 28rem;
     margin: 0 auto;
   }
 
